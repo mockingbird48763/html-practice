@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlexBoxDemo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 5px;
+      min-width: 450px;
+    }
+
+    .base {
+      font-size: 24px;
+      text-align: center;
+      border-radius: 10px;
+      margin: 5px;
+    }
+
+    .red {
+      line-height: 68px;
+      padding: 0 34px;
+      background-color: red;
+    }
+
+    .green {
+      line-height: 68px;
+      padding: 0 58px;
+      background-color: green;
+    }
+
+    select {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    #content {
+      display: flex;
+      border: 5px solid #000;
+      border-radius: 10px;
+      width: 732px;
+      height: 702px;
+      margin: 10px;
+      overflow: scroll;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .fxdr {
+      flex-direction: row;
+    }
+
+    .fxdc {
+      flex-direction: column;
+    }
+
+    .fxdrr {
+      flex-direction: row-reverse;
+    }
+
+    .fxdcr {
+      flex-direction: column-reverse;
+    }
+
+    .ais {
+      align-items: start;
+    }
+
+    .aic {
+      align-items: center;
+    }
+
+    .aie {
+      align-items: end;
+    }
+
+    .aish {
+      align-items: stretch;
+    }
+
+    .aib {
+      align-items: baseline;
+    }
+
+    .jcs {
+      justify-content: start;
+    }
+
+    .jce {
+      justify-content: end;
+    }
+
+    .jcc {
+      justify-content: center;
+    }
+
+    .jcsb {
+      justify-content: space-between;
+    }
+
+    .jcsd {
+      justify-content: space-around;
+    }
+
+    .jcsy {
+      justify-content: space-evenly;
+    }
+
+    .fxww {
+      flex-wrap: wrap;
+    }
+
+    .fxwn {
+      flex-wrap: nowrap;
+    }
+
+    .fxwwr {
+      flex-wrap: wrap-reverse;
+    }
+
+    .acs {
+      align-content: start;
+    }
+
+    .ace {
+      align-content: end;
+    }
+
+    .acc {
+      align-content: center;
+    }
+
+    .acsh {
+      align-content: stretch;
+    }
+
+    .acsb {
+      align-content: space-between;
+    }
+
+    .acsd {
+      align-content: space-around;
+    }
+
+    .acsy {
+      align-content: space-evenly;
+    }
+  </style>
+</head>
+
+<body class="flex">
+  <div id="container">
+    <h1>settings</h1>
+    <div class="flex aic">
+      <p>flex-direction（修改主軸位置）</p>
+      <select>
+        <option value="fxdr">row（預設值）</option>
+        <option value="fxdc">column</option>
+        <option value="fxdrr">row-reverse</option>
+        <option value="fxdcr">column-reverse</option>
+      </select>
+    </div>
+    <div class="flex aic">
+      <p>justify-content（調整主軸對齊方式）</p>
+      <select>
+        <option value="jcs">start（預設值）</option>
+        <option value="jce">end</option>
+        <option value="jcc">center</option>
+        <option value="jcsb">space-between</option>
+        <option value="jcsd">space-around</option>
+        <option value="jcsy">space-evenly</option>
+      </select>
+    </div>
+    <div class="flex aic">
+      <p>align-items（調整副軸對齊方式）</p>
+      <select>
+        <!-- 如果 flex 的內容元素沒有設定高度（row）或寛度(column)，那麼內容元素撐開至 flexbox 的大小 -->
+        <option value="aish">stretch（預設值）</option>
+        <option value="ais">start</option>
+        <option value="aie">end</option>
+        <option value="aic">center</option>
+        <option value="aib">baseline</option>
+      </select>
+    </div>
+    <div class="flex aic">
+      <p>flex-wrap（折行）</p>
+      <select>
+        <option value="fxwn">nowrap（預設值）</option>
+        <option value="fxww">wrap</option>
+        <option value="fxwwr">wrap-reverse</option>
+      </select>
+    </div>
+    <div class="flex aic">
+      <p>align-content（折行間距）</p>
+      <select>
+        <option value="acsh">stretch（預設值）</option>
+        <option value="acs">start</option>
+        <option value="ace">end</option>
+        <option value="acc">center</option>
+        <option value="acsb">space-between</option>
+        <option value="acsd">space-around</option>
+        <option value="acsy">space-evenly</option>
+      </select>
+    </div>
+    <div style="margin-top: 10px">
+      <button onclick="addElement()" style="padding: 5px;">添加子元素</button>
+      <button onclick="removeElement()" style="padding: 5px;">刪除子元素</button>
+    </div>
+  </div>
+  <div id="content">
+    <div class="red base ">1</div>
+    <div class="green base ">2</div>
+    <div class="green base ">3</div>
+    <div class="red base ">4</div>
+    <div class="green base ">5</div>
+    <div class="green base ">6</div>
+    <div class="red base ">7</div>
+    <div class="green base ">8</div>
+    <div class="green base ">9</div>
+  </div>
+  <script>
+    const ocontainer = document.getElementById('container')
+    const oselects = [...ocontainer.getElementsByTagName('select')]
+    const ocontent = document.getElementById('content')
+    const handle = function () {
+      ocontent.classList.value = ''
+      oselects.forEach(element => {
+        ocontent.classList.add(element.value)
+      })
+    }
+    oselects.forEach(element => {
+      element.onchange = handle
+    })
+    let count = 9
+    function addElement() {
+      const oelement = document.createElement('div')
+      oelement.innerHTML = ++count
+      if (count % 3 === 1) oelement.className = 'red base'
+      else oelement.className = 'green base'
+      content.appendChild(oelement)
+    }
+    function removeElement() {
+      if (count <= 0) return
+      count -= 1
+      ocontent.removeChild(ocontent.lastElementChild)
+    }
+  </script>
+</body>
+
+</html>

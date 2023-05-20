@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭頭 - 1</title>
+  <style>
+    /* 漸變實現 */
+    #arrow1 {
+      width: 300px;
+      height: 150px;
+      border: 1px solid red;
+      text-align: center;
+      line-height: 150px;
+      background:
+        linear-gradient(-135deg, transparent 50px, gold 50px) 100% 0%,
+        linear-gradient(-45deg, transparent 50px, deeppink 50px) 100% 100%;
+      background-repeat: no-repeat;
+      background-size: 100% 50%;
+    }
+
+    /* 裁剪路徑實現 */
+    #arrow2 {
+      width: 300px;
+      height: 150px;
+      border: 1px solid red;
+      text-align: center;
+      line-height: 150px;
+      background: linear-gradient(0deg, deeppink 50%, gold 50%);
+      clip-path: polygon(0 0,
+          calc(100% - 80px) 0,
+          100% 50%,
+          calc(100% - 80px) 100%,
+          0 100%);
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="arrow1">箭頭1</h1>
+  <h1 id="arrow2">箭頭2</h1>
+</body>
+
+</html>

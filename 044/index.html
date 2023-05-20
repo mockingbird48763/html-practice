@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圓環效果</title>
+  <style>
+    #ring {
+      width: 300px;
+      height: 300px;
+      text-align: center;
+      line-height: 300px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 50%, white 120px, transparent 120px),
+        conic-gradient(skyblue 61.8%, transparent 61.8% 62.3%, pink 62.3% 73%, transparent 73%);
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="ring">動態圓環</h1>
+  <script>
+    let ring = document.getElementById('ring')
+    ring.onclick = function () {
+      let rate = 0
+      let timeId = setInterval(() => {
+        rate++
+        /* 如果百分百，停止間隔定時器 */
+        if (rate >= 100) {
+          clearInterval(timeId)
+        }
+        /* this = ring */
+        this.style.background = `radial-gradient(circle at 50% 50%, white 120px, transparent 120px), 
+        conic-gradient(gold ${rate}%, transparent ${rate}%)`
+        this.innerHTML = rate + '%'
+      }, 10);
+    }
+  </script>
+</body>
+
+</html>

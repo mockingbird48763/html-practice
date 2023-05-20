@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <title>卡片排版設計</title>
+  <style>
+    body,
+    html {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      font-family: "微軟正黑體", "Microsoft JhengHei";
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #3F5D45;
+    }
+
+    .all {
+      width: 90%;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+      background-color: #EAF0ED;
+      padding: 0 30px;
+      border-radius: 5px 5px 0 0;
+      color: #3F5D45;
+      font-weight: bold;
+    }
+
+    .row {
+      display: flex;
+      background-color: #fff;
+      padding: 30px 50px;
+    }
+
+    .row .con {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: end;
+      margin-left: 50px;
+    }
+
+    .btns i {
+      font-size: 20px;
+      color: #3F5D45;
+      padding: 0 3px;
+
+    }
+
+    .row .pic {
+      height: 350px;
+      width: 350px;
+      background-image: url('https://images.unsplash.com/photo-1462745294598-b3f9a2d7b858?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80');
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="all">
+    <div class="top">
+      <img src="https://pei-qun.github.io/Sweetaste/img/flex-ex-img3.svg" height="55" alt="">
+      <p>more</p>
+    </div>
+    <div class="row">
+      <div class="pic"></div>
+      <div class="con">
+        <article>
+          <h2>想吃甜點　是不需要理由的。</h2>
+          <p>
+            青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今多少事，都付笑談中。<br>是非成敗轉頭空，青山依舊在，幾度夕陽紅。白髮漁樵江渚上，古今多少事，都付笑談中。
+          </p>
+        </article>
+        <div class="btns">
+          <i class="fa fa-share-square-o"></i>
+          <i class="fa fa-heart-o"></i>
+          <i class="fa fa-facebook-square"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

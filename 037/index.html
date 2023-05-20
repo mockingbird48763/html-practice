@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>平行四邊形</title>
+  <style>
+    /* 使用背景實現 */
+    #parallelogram1 {
+      width: 300px;
+      height: 150px;
+      border: 1px solid red;
+      text-align: center;
+      line-height: 150px;
+
+      /* 從右上角渲染 */
+      background: linear-gradient(75deg, transparent 40px, gold 40px) 0 0,
+        /* 從左上角渲染 */
+        linear-gradient(-105deg, transparent 40px, gold 40px) 100% 0px;
+
+      /* 設置背景的寬度 */
+      background-size: 50% 100%;
+      background-repeat: no-repeat;
+    }
+
+    /* 裁剪路徑實現 */
+    #parallelogram2 {
+      width: 300px;
+      height: 150px;
+      border: 1px solid red;
+      text-align: center;
+      line-height: 150px;
+      background-color: gold;
+      /* 座標點定位，多點閉合 */
+      clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 100%, 40px 100%);
+    }
+
+    /* 扭曲加偽元素 */
+    /* skwe 不好把控寬度並且文字也會扭曲，所以需要偽元素輔助避免文字扭曲 */
+    #parallelogram3 {
+      width: 300px;
+      height: 150px;
+      border: 1px solid red;
+      text-align: center;
+      line-height: 150px;
+      position: relative;
+    }
+
+    #parallelogram3::after {
+      content: '';
+      display: block;
+      width: 300px;
+      height: 150px;
+      border: 1px solid red;
+      background-color: gold;
+      transform: skewX(15deg);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="parallelogram1">平行四邊形1</h1>
+  <h1 id="parallelogram2">平行四邊形2</h1>
+  <h1 id="parallelogram3">平行四邊形3</h1>
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VerticalAlignDemo</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      background: gray;
+    }
+
+    p {
+      background-color: white;
+      font-size: 24px;
+    }
+
+    span {
+      background-color: green;
+      color: white;
+      font-size: 24px;
+    }
+
+    div {
+      background-color: black;
+    }
+
+    button {
+      width: 40px;
+      height: 40px;
+      font-size: 24px;
+    }
+
+    .tac {
+      text-align: center;
+    }
+
+    div:nth-child(3)>img {
+      vertical-align: baseline;
+    }
+
+    div:nth-child(5)>img {
+      vertical-align: sub;
+    }
+
+    div:nth-child(7)>img {
+      vertical-align: super;
+    }
+
+    div:nth-child(9)>img {
+      vertical-align: top;
+    }
+
+    div:nth-child(11)>img {
+      vertical-align: text-top;
+    }
+
+    div:nth-child(13)>img {
+      vertical-align: middle;
+    }
+
+    div:nth-child(15)>img {
+      vertical-align: bottom;
+    }
+
+    div:nth-child(17)>img {
+      vertical-align: text-bottom;
+    }
+
+    div:nth-child(19)>img {
+      vertical-align: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="tac">圖片垂直方向的對齊</h1>
+  <p>vertical-align: baseline;</p>
+  <div>
+    <span>預設值，元素在該行的基礎線上，大約在文字的中間位置</span>
+    <img src="https://picsum.photos/200/200?image=74" title="baseline">
+    <span>填充文字填充文字填充文字填充文字填充文字</span>
+  </div>
+  <p>vertical-align: sub;</p>
+  <div>
+    <span>圖片垂直對齊該行本文的下標位置</span>
+    <img src="https://picsum.photos/200/200?image=74" title="sub">
+    <span>填充文字填充文字填充文字填充文字填充文字</span>
+  </div>
+  <p>vertical-align: super;</p>
+  <div>
+    <span>圖片垂直對齊該行本文的上標位置</span>
+    <img src="https://picsum.photos/200/200?image=74" title="super">
+    <span>填充文字填充文字填充文字填充文字填充文字</span>
+  </div>
+  <p>vertical-align: top;</p>
+  <div>
+    <span>圖片垂直對齊該行元素的最高位置</span>
+    <img src="https://picsum.photos/200/200?image=74" title="top">
+    <span>填充文字填充文字填充文字填充文字填充文字</span>
+  </div>
+  <p>vertical-align: text-top;</p>
+  <div>
+    <span>圖片垂直對齊該行文字的最高位置</span>
+    <img src="https://picsum.photos/200/200?image=74" title="text-top">
+    <span>填充文字填充文字填充文字填充文字填充文字</span>
+  </div>
+  <p>vertical-align: middle;</p>
+  <div>
+    <span>圖片垂直對齊該行文字的置中位置</span>
+    <img src="https://picsum.photos/200/200?image=74" title="middle">
+    <span>填充文字填充文字填充文字填充文字填充文字</span>
+  </div>
+  <p>vertical-align: bottom;</p>
+  <div>
+    <span>圖片垂直對齊該行元素的最低位置</span>
+    <img src="https://picsum.photos/200/200?image=74" title="bottom">
+    <span>填充文字填充文字填充文字填充文字填充文字</span>
+  </div>
+  <p>vertical-align:text-bottom;</p>
+  <div>
+    <span>圖片垂直對齊該行文字的最低位置</span>
+    <img src="https://picsum.photos/200/200?image=74" title="text-bottom">
+    <span>填充文字填充文字填充文字填充文字填充文字</span>
+  </div>
+  <p>vertical-align:%;</p>
+  <div>
+    <span>以百分比來讓圖片垂直對齊該行文字，可以有負值</span>
+    <img src="https://picsum.photos/200/200?image=74" title="%" style="vertical-align: 100%">
+    <button onclick="sub()">-</button><span>100%</span><button onclick="add()">+</button>
+  </div>
+  <p>另外還有 inherit 繼承屬性值</p>
+
+  <script>
+    const odiv = document.getElementsByTagName('div')[8]
+    const oimg = odiv.getElementsByTagName('img')[0]
+    const ospan = odiv.getElementsByTagName('span')[1]
+    let percentage = 100
+    function add() {
+      percentage += 10
+      oimg.style.verticalAlign = percentage + '%'
+      ospan.innerHTML = percentage + '%'
+    }
+    function sub() {
+      percentage -= 10
+      oimg.style.verticalAlign = percentage + '%'
+      ospan.innerHTML = percentage + '%'
+    }
+  </script>
+</body>
+
+</html>

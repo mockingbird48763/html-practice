@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>標籤項</title>
+  <style>
+    /* 範例一 */
+    #tagItem {
+      width: 300px;
+      height: 150px;
+      background-color: pink;
+      text-align: center;
+      line-height: 150px;
+      margin-left: 100px;
+      border-radius: 17px 17px 0 0;
+      position: relative;
+    }
+
+    /* 範例二 */
+    :root {
+      --decorate-size: 17px
+    }
+
+    .item.active-left,
+    .item.active-right {
+      background-color: deeppink;
+      color: white;
+      font-size: 24px;
+    }
+
+    /* 提取公共項 */
+    .active-left::before,
+    .active-right::after {
+      content: '';
+      display: block;
+      width: var(--decorate-size);
+      height: var(--decorate-size);
+      position: absolute;
+      bottom: 0;
+      z-index: 1;
+    }
+
+    .active-left::before {
+      background: radial-gradient(circle at 0% 0%, transparent 0px var(--decorate-size), deeppink var(--decorate-size) 100%);
+      left: calc(var(--decorate-size) * -1);
+    }
+
+    .active-right::after {
+      background: radial-gradient(circle at 100% 0%, transparent 0px var(--decorate-size), deeppink var(--decorate-size) 100%);
+      right: calc(var(--decorate-size) * -1);
+    }
+
+    ul {
+      list-style: none;
+      overflow: hidden;
+      border-bottom: 4px solid deeppink;
+      cursor: pointer;
+    }
+
+    .item {
+      width: 200px;
+      height: 50px;
+      background: pink;
+      text-align: center;
+      line-height: 50px;
+      float: left;
+      border-radius: 17px 17px 0 0;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <h1 id="tagItem" class="active-left active-right">標籤項</h1> -->
+
+  <ul>
+    <li class="item">Vue</li>
+    <li class="item active-left active-right">React</li>
+    <li class="item">Angular</li>
+  </ul>
+
+  <script>
+    let olist = document.querySelectorAll('.item')
+    olist.forEach((item, index) => {
+      item.onclick = function () {
+        olist.forEach(item => item.classList.remove('active-left', 'active-right'))
+        if (index === 0) this.classList.add('active-right')
+        else if (index === olist.length - 1) this.classList.add('active-left')
+        else this.classList.add('active-left', 'active-right')
+      }
+    })
+  </script>
+</body>
+
+</html>

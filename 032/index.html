@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <title>簡易五宮格排版</title>
+  <style>
+    body,
+    html {
+      margin: 0;
+      height: 100%;
+      font-family: "Microsoft JhengHei";
+    }
+
+    body {
+      box-sizing: border-box;
+      background-color: #EAF0ED;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .all {
+      width: 800px;
+      max-width: 100%;
+      background-color: #3F5D45;
+      padding: 30px 50px 50px 50px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    .container .col {
+      background-color: #EAF0ED;
+      border: 10px solid #3F5D45;
+      box-sizing: border-box;
+      width: 25%;
+      border-radius: 15px;
+      color: #3F5D45;
+      font-size: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1 1 50%;
+    }
+
+    .container .col.main {
+      font-size: 90px;
+      width: 50%;
+      flex: 1 1 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="all">
+    <div class="title">
+      <h2>為什麼　選擇了做甜點？</h2>
+      <p>青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今多少事，都付笑談中。<br>
+        是非成敗轉頭空，青山依舊在，幾度夕陽紅。白髮漁樵江渚上，古今多少事，都付笑談中。</p>
+    </div>
+    <div class="container">
+      <div class="col main">
+        <i class="fa fa-rocket"></i>
+      </div>
+      <div class="col">
+        <i class="fa fa-paw"></i>
+      </div>
+      <div class="col">
+        <i class="fa fa-leaf"></i>
+      </div>
+      <div class="col">
+        <i class="fa fa-globe"></i>
+      </div>
+      <div class="col">
+        <i class="fa fa-car"></i>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

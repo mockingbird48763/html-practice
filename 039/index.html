@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>切角八邊形</title>
+  <style>
+    /* 漸變實現 */
+    #octagon1 {
+      width: 300px;
+      height: 150px;
+      border: 1px solid red;
+      text-align: center;
+      line-height: 150px;
+      background:
+        linear-gradient(135deg, transparent 30px, pink 30px) 0 0,
+        linear-gradient(-135deg, transparent 30px, pink 30px) 100% 0,
+        linear-gradient(-45deg, transparent 30px, pink 30px) 100% 100%,
+        linear-gradient(45deg, transparent 30px, pink 30px) 0 100%;
+
+      /* 每個背景各占 25% */
+      background-size: 50% 50%;
+      background-repeat: no-repeat;
+    }
+
+    /* 裁剪路徑實現 */
+    #octagon2 {
+      width: 300px;
+      height: 150px;
+      text-align: center;
+      line-height: 150px;
+      background-color: pink;
+      clip-path: polygon(30px 0,
+          calc(100% - 30px) 0,
+          100% 30px,
+          100% calc(100% - 30px),
+          calc(100% - 30px) 100%,
+          30px 100%,
+          0 calc(100% - 30px),
+          0 30px);
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="octagon1">切角八邊形1</h1>
+  <h1 id="octagon2">切角八邊形2</h1>
+</body>
+
+</html>

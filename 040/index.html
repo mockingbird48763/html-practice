@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>切角圓角八邊形</title>
+  <style>
+    /* 徑向漸變實現 */
+    #octagon1 {
+      width: 300px;
+      height: 150px;
+      border: 1px solid red;
+      text-align: center;
+      line-height: 150px;
+      background:
+        radial-gradient(circle at 0% 0%, transparent 30px, gold 30px) 0% 0%,
+        radial-gradient(circle at 100% 0%, transparent 30px, gold 30px) 100% 0%,
+        radial-gradient(circle at 100% 100%, transparent 30px, gold 30px) 100% 100%,
+        radial-gradient(circle at 0% 100%, transparent 30px, gold 30px) 0% 100%;
+      background-repeat: no-repeat;
+      background-size: 50% 50%;
+    }
+
+    /* 遮罩實現，可以處理圖片 */
+    #octagon2 {
+      width: 300px;
+      height: 150px;
+      /* 可以替換為 background-image */
+      background-color: gold;
+      text-align: center;
+      line-height: 150px;
+
+      /* 漸變可以是任意顏色，只是起到遮罩效果 */
+      -webkit-mask:
+        radial-gradient(circle at 0% 0%, transparent 30px, black 30px) 0% 0%,
+        radial-gradient(circle at 100% 0%, transparent 30px, black 30px) 100% 0%,
+        radial-gradient(circle at 100% 100%, transparent 30px, black 30px) 100% 100%,
+        radial-gradient(circle at 0% 100%, transparent 30px, black 30px) 0% 100%;
+
+      -webkit-mask-size: 50% 50%;
+      -webkit-mask-repeat: no-repeat;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="octagon1">切角圓角八邊形1</h1>
+  <h1 id="octagon2">切角圓角八邊形2</h1>
+</body>
+
+</html>

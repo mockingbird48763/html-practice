@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>訊息對話紀錄</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #d3effb;
+    }
+
+    .dialogue {
+      width: 500px;
+      padding: 20px;
+      box-shadow: 0 0 10px #3e92cc;
+      background-color: #f4f5f7;
+    }
+
+    .user {
+      display: flex;
+      margin-bottom: 20px;
+      /* 對話框等高的處理 */
+      align-items: start;
+    }
+
+    .local {
+      justify-content: end;
+    }
+
+    .user .avatar {
+      width: 60px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .user .pic {
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .user .pic img {
+      width: 100%;
+      vertical-align: middle;
+    }
+
+    .user .txt {
+      background-color: #aaa;
+      padding: 16px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .remote .txt {
+      margin-left: 20px;
+      /* 限制對話框不要拉伸到對方的頭像上面 */
+      /* margin-left: 20px + avatar-width: 60px */
+      margin-right: 80px;
+      background-color: #df8211;
+      color: #fff;
+    }
+
+    .local .txt {
+      margin-right: 20px;
+      margin-left: 80px;
+      order: -1;
+      background-color: #3e92cc;
+      color: #fff;
+    }
+
+    .remote .txt::before,
+    .local .txt::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+
+    .remote .txt::before {
+      border-right: 10px solid #fff;
+      left: -10px;
+    }
+
+    .local .txt::before {
+      border-left: 10px solid #3e92cc;
+      right: -10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dialogue">
+    <div class="user remote">
+      <div class="avatar">
+        <div class="pic">
+          <img src="Mary.svg">
+        </div>
+        <div class="name">Mary</div>
+      </div>
+      <div class="txt">
+        老公你好帥！
+      </div>
+    </div>
+    <div class="user local">
+      <div class="avatar">
+        <div class="pic">
+          <img src="Amelia.svg">
+        </div>
+        <div class="name">Amelia</div>
+      </div>
+      <div class="txt">
+        那是為了配合超正的妳啊！
+      </div>
+    </div>
+    <div class="user remote">
+      <div class="avatar">
+        <div class="pic">
+          <img src="Mary.svg">
+        </div>
+        <div class="name">Mary</div>
+      </div>
+      <div class="txt">
+        老公你這麼會講話！是不是又偷買了甚麼玩具？
+      </div>
+    </div>
+    <div class="user local">
+      <div class="avatar">
+        <div class="pic">
+          <img src="Amelia.svg">
+        </div>
+        <div class="name">Amelia</div>
+      </div>
+      <div class="txt">
+        怎麼可能，我從來都不說謊的，你想太多了
+      </div>
+    </div>
+    <div class="user remote">
+      <div class="avatar">
+        <div class="pic">
+          <img src="Mary.svg">
+        </div>
+        <div class="name">Mary</div>
+      </div>
+      <div class="txt">
+        玩具拿出來...(直視)
+      </div>
+    </div>
+    <div class="user local">
+      <div class="avatar">
+        <div class="pic">
+          <img src="Amelia.svg">
+        </div>
+        <div class="name">Amelia</div>
+      </div>
+      <div class="txt">
+        ...是......(遞)
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

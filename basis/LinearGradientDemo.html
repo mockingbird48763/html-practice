@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinearGradientDemo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 8px;
+    }
+
+    .base {
+      width: 300px;
+      height: 300px;
+      margin: 8px;
+    }
+
+    #box1>div:nth-child(3) {
+
+      background-image: linear-gradient(red, yellow);
+    }
+
+    #box1>div:nth-child(5) {
+
+      background-image: linear-gradient(to top left, red, yellow, green, blue);
+    }
+
+    #box2>div:nth-child(3) {
+
+      background-image: linear-gradient(115deg, #f00 50%, #ff0 50%);
+    }
+
+    #box2>div:nth-child(5) {
+
+      background: linear-gradient(115deg, #f00 50%, transparent 50%);
+    }
+
+    #box2>div:nth-child(7) {
+      background: linear-gradient(115deg, #f00 50%, transparent 50%),
+        url(https://picsum.photos/300?image=92);
+    }
+
+    #box2>div:nth-child(9) {
+      background: linear-gradient(to right,
+          red 20%,
+          orange 20% 40%,
+          yellow 40% 60%,
+          green 60% 80%,
+          blue 80%);
+    }
+
+    #box2>div:nth-child(11) {
+      background: linear-gradient(to right,
+          red 60px,
+          orange 60px 120px,
+          yellow 120px 180px,
+          green 180px 240px,
+          blue 240px);
+    }
+
+    #box2>div:nth-child(13) {
+      background: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%);
+    }
+
+    #box2>div:nth-child(14) {
+      background: linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%);
+    }
+
+    #box2>div:nth-child(15) {
+      background: linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+    }
+
+    #box2>div:nth-child(16) {
+      background: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%),
+        linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
+        linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+    }
+
+    code {
+      font-size: 24px;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box1">
+    <div>
+      <code>background-image: linear-gradient(to 目標方向, 起始色彩, 結束色彩)</code>
+    </div>
+    <code>background: linear-gradient(to bottom, red, green)
+      to bottom（預設值）等於 180deg
+    </code>
+    <div class="base"></div>
+    <code>background-image: linear-gradient(to top left, red, yellow, green, blue)</code>
+    <div class="base"></div>
+  </div>
+  <hr>
+  <div id="box2">
+    <div>
+      <code>background-image: linear-gradient(角度, 起始色彩 起始色彩位置, 結束色彩 結束色彩位置)</code>
+    </div>
+    <code>background-image: linear-gradient(115deg, #f00 50%, #ff0 50%)</code>
+    <div class="base"></div>
+    <code>background: linear-gradient(115deg, #f00 50%, transparent 50%)
+      這樣可以利用多重圖片或者 :before 來產生一個自帶半邊有角度的色彩
+    </code>
+    <div class="base"></div>
+    <code>background: linear-gradient(115deg, #f00 50%, transparent 50%), url(https://picsum.photos/300?image=92)
+      多重圖片應用
+    </code>
+    <div class="base"></div>
+    <code>background: linear-gradient(to right, red 20%, orange 20% 40%, yellow 40% 60%, green 60% 80%, blue 80%)
+      多色應用</code>
+    <div class="base"></div>
+    <code>background: linear-gradient(to right, red 60px, orange 60px 120px, yellow 120px 180px, green 180px 240px, blue 240px)
+      多色應用 2，使用其他單位區隔</code>
+    <div class="base"></div>
+    <code>background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+        linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+        linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+        多重圖片應用 2
+    </code>
+    <div class="base" style="float: left;"></div>
+    <div class="base" style="float: left;"></div>
+    <div class="base" style="float: left;"></div>
+    <div class="base" style="float: left;"></div>
+  </div>
+</body>
+
+</html>

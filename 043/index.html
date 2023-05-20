@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>切角六邊形</title>
+  <style>
+    /* 漸變實現 */
+    #hexagon1 {
+      width: 300px;
+      height: 150px;
+      border: 1px solid red;
+      text-align: center;
+      line-height: 150px;
+      background:
+        linear-gradient(135deg, transparent 52.5px, skyblue 52.5px) 0 0,
+        linear-gradient(-135deg, transparent 52.5px, skyblue 52.5px 100%) 100% 0%,
+        linear-gradient(-45deg, transparent 52.5px, skyblue 52.5px) 100% 100%,
+        linear-gradient(45deg, transparent 52.5px, skyblue 52.5px) 0% 100%;
+      background-repeat: no-repeat;
+      background-size: 51% 51%;
+    }
+
+    /* 裁剪路徑實現 */
+    #hexagon2 {
+      width: 300px;
+      height: 150px;
+      border: 1px solid red;
+      text-align: center;
+      line-height: 150px;
+      background-color: skyblue;
+      clip-path: polygon(80px 0px,
+          calc(100% - 80px) 0px,
+          100% 50%,
+          calc(100% - 80px) 100%,
+          80px 100%,
+          0px 50%);
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="hexagon1">切角六邊形1</h1>
+  <h1 id="hexagon2">切角六邊形2</h1>
+</body>
+
+</html>
